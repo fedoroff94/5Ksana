@@ -1,0 +1,40 @@
+import { SitemapStream, streamToPromise } from "sitemap";
+import { createWriteStream } from "fs";
+import gallery from "./gallery.js";
+import shop from "./shop.js";
+
+const domain = "https://your-domain.com"; // replace with your production domain
+
+async function generateSitemap() {
+  const sitemap = new SitemapStream({ hostname: domain });
+  const writeStream = createWriteStream("./public/sitemap.xml");
+
+  sitemap.pipe(writeStream);
+
+  const staticRoutes = [
+    "/",
+    "/shop",
+    "/about",
+    "/gallery",
+    "/search",
+    "/privacy",
+    "/policies",
+    "/faq",
+    "/support",
+    "/proof",
+    "/exhibitions",
+  ];
+
+  staticRoutes.forEach((route) => sitemap.write({ url: route }));
+
+  gallery.forEach((slug) => sitemap.write({ url: `/gallery/${slug}/` }));
+  shop.forEach((slug) => sitemap.write({ url: `/shop/${slug}/` }));
+
+  sitemap.end();
+
+  // Correct usage — wait for sitemap stream to finish
+  await streamToPromise(sitemap);
+  console.log("✅ Sitemap generated at public/sitemap.xml");
+}
+
+generateSitemap().catch(console.error);
