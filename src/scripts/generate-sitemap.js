@@ -3,7 +3,7 @@ import { createWriteStream } from "fs";
 import gallery from "./gallery.js";
 import shop from "./shop.js";
 
-const domain = "https://your-domain.com"; // replace with your production domain
+const domain = "https://seo-5ksana-app-490f934d6782.herokuapp.com/";
 
 async function generateSitemap() {
   const sitemap = new SitemapStream({ hostname: domain });
@@ -32,9 +32,7 @@ async function generateSitemap() {
 
   sitemap.end();
 
-  // Correct usage — wait for sitemap stream to finish
   await streamToPromise(sitemap);
-  console.log("✅ Sitemap generated at public/sitemap.xml");
 }
 
 generateSitemap().catch(console.error);
