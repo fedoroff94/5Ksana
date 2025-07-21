@@ -20,9 +20,6 @@ User-Agent: Applebot-Extended
 Disallow: /
 
 User-Agent: *
-User-Agent: applebot
-User-Agent: PerplexityBot
-User-Agent: bingbot
 Disallow: /adm
 Disallow: /payment
 Disallow: /pending
@@ -30,10 +27,10 @@ Disallow: /success
 Disallow: /thankyou
 Disallow: /error
 Disallow: /privacy
-Disallow: /policies*
-Disallow: *?*s=*
-Disallow: *?*color=*
-Disallow: *?*size=*
+Disallow: /policies
+Disallow: *?s=*
+Disallow: *?color=*
+Disallow: *?size=*
 Disallow: /404
 Disallow: /docs
 Disallow: /login
@@ -44,7 +41,7 @@ Disallow: /vendor
 Disallow: /api
 Disallow: /faq
 Disallow: /donate
-Disallow: /search*
+Disallow: /search
 Disallow: /email.svg
 Disallow: /Visa.svg
 Disallow: /bag.svg
@@ -57,7 +54,6 @@ Disallow: /down-arrow.svg
 Disallow: /ApplePay.svg
 Disallow: /github.com/
 
-User-Agent: *
 Allow: /shop/
 Allow: /gallery/
 Allow: /about
@@ -65,4 +61,4 @@ Allow: /proof
 Allow: /exhibitions
 Allow: /support
 
-Sitemap: https://buybitart.com/sitemap.xml
+Sitemap: https://seo-5ksana-app-490f934d6782.herokuapp.com/sitemap.xml
